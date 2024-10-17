@@ -24,7 +24,7 @@ class theatre {
     }
 
     chooseSeat(id: number): void {
-        if(this.seats[id].taken === false){
+        if(this.seats[id].taken === true){
             console.log("Seat not available");
         }
         else{
@@ -40,6 +40,8 @@ console.log("Seats:")
 pvr.showSeats();
 
 console.log("Choose seat");
+
+pvr.chooseSeat(23);
 
 
 
