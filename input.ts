@@ -5,8 +5,12 @@ const rl = createInterface({
     output: process.stdout
 });
 
-const input = (questionText: string) =>
-    new Promise<string>(resolve => rl.question(questionText, resolve))
-        .finally(() => rl.close());
+function input(questionText: string) : Promise<string>{
+    return new Promise((resolve) => {
+     rl.question(questionText, (answer) => {
+        resolve(answer);
+    });
+});
+}    
 
 export default input;

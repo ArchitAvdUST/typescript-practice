@@ -5,8 +5,11 @@ var rl = (0, readline_1.createInterface)({
     input: process.stdin,
     output: process.stdout
 });
-var input = function (questionText) {
-    return new Promise(function (resolve) { return rl.question(questionText, resolve); })
-        .finally(function () { return rl.close(); });
-};
+function input(questionText) {
+    return new Promise(function (resolve) {
+        rl.question(questionText, function (answer) {
+            resolve(answer);
+        });
+    });
+}
 exports.default = input;
